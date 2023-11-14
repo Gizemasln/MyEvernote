@@ -1,0 +1,158 @@
+﻿
+@using MyEvernote.WebApp
+@using MyEvernote.Entities
+@using MyEvernote.WebApp.Models
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Shop Homepage Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <!-- Add custom CSS here -->
+    <link href="~/Content/shop-homepage.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Menü</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/Home/Index">My Evernote</a>
+            </div>
+            
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    }
+                    @if (CurrentSession.User != null)
+                    {
+                        <li class="dropdown">
+                            <a href="/Note/MyNotes" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="glyphicon glyphicon-wrench"></span> Yönetim
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    @Bootstrap.LinkMenu("/Note/Create", "plus", " Not Ekle")
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    @Bootstrap.LinkMenu("/Note/Index", "th-list", " Notlarım")
+                                </li>
+                                <li>
+                                    @Bootstrap.LinkMenu("/Note/MyLikedNotes", "Heart", " Beğendiklerim")
+                                </li>
+                                @if(CurrentSession.User.IsAdmin)
+                                {
+                                    /*Admin giriş yaptıysa bu linklerr görünsün*/
+                                    <li role="separator" class="divider"></li>
+                                    <li>
+                                        @Bootstrap.LinkMenu("/Category/Create", "plus", " Kategori Ekle")
+
+                                    </li>
+                                    <li>
+
+                                        @Bootstrap.LinkMenu("/Category/Index", "th-list", " Kategoriler")
+                                    </li>
+
+                                    <li role="separator" class="divider"></li>
+
+
+                                    <li>
+                                        @Bootstrap.LinkMenu("/EvernoteUsers/Create", "plus", " Kullanıcı Ekle")
+                                    </li>
+
+                                    <li>
+                                        @Bootstrap.LinkMenu("/EvernoteUsers/Index", "th-list", " Kullanıcılar")
+                                    </li>
+
+                                }
+                            </ul>
+                        </li>
+
+                    }
+                <li>
+                    @Bootstrap.LinkMenu("/Home/MostLiked", "star", " En Beğenilenler")
+                </li>
+                <li>
+                    @Bootstrap.LinkMenu("/Home/Index", "th-list", "Son Yazılanlar")
+                </li>
+                <li>
+                    @Bootstrap.LinkMenu("/Home/About", "info-sign", " Hakkımızda")
+                </li>
+                </ul>
+                <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        @if (CurrentSession.User == null)
+                        {
+                            //user null yani igriş yoksa bunlar gözükecek
+                            <li>
+                                @Bootstrap.LinkMenu("/Home/Login", "log-in", " Giriş")
+                            </li>
+                            <li>
+                                @Bootstrap.LinkMenu("/Home/Register", "user", " Üye Ol")
+                            </li>
+
+
+                        }
+                        else
+                        {
+                            <li class="dropdown">
+                                <a href="/Home/ShowProfile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <span class="glyphicon glyphicon-user"></span>@CurrentSession.User.Username <span class="caret"></span> </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                       @Bootstrap.LinkMenu("/Home/ShowProfile", "user", " Profili Göster")
+                                    </li>
+                                    <li role="separator" class="=divider"></li>
+                                    <li>
+                                        @Bootstrap.LinkMenu("/Home/EditProfile", "iedit", " Profil Düzenle")
+                                    </li>
+                                    <li>
+                                        <a href="/Home/DeleteProfile" onclick="return confirm('Hesabını silmek istediğinize emin misiniz?');"><span class="glyphicon glyphicon-trash"></span>Profili Sil</a>
+                                    </li>
+                                </ul>
+
+                            </li>
+
+                            <li>
+                                @Bootstrap.LinkMenu("/Home/Logout", "log-out", " Çıkış")
+                            </li>
+                        }
+
+                    </ul>
+
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            </div>
+        <!-- /.container -->
+    </nav>
+
+    @RenderBody()
+    @*BİR BÖLÜM OLARAK PARTİAL AÇMAK İÇİN rEDNERSECTİON
+    HER ZAMANA GEREKLİ OLMAYAN BİR BÖLÜM*@
+    @RenderSection("footer",required:false)
+</body>
+
+</html>

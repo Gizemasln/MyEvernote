@@ -1,0 +1,43 @@
+﻿@using MyEvernote.Entities
+@model EvernoteUsers
+@{
+    ViewBag.Title = "Profiliniz";
+}
+<div class="container">
+
+    <div class="row">
+        <h2>@ViewBag.Title</h2>
+        <hr />
+
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <img src="~/Images/@Model.ProfileImageFilename" class="img-circle" width="128" height="128" />
+
+        </div>
+        <div class="col-md-10">
+            <h3>@(Model.Name + " " + Model.Surname)</h3>
+            <br />
+            <h5>@Html.DisplayNameFor(model => model.Username) : </b> @Model.Username</h5>
+            <h5><b>@Html.DisplayNameFor(model => model.Email) :  </b> @Model.Email</h5>
+            <br />
+            <h6><a href="#">More...</a></h6>
+
+        </div>
+       
+    </div>
+</div>
+@*<script>
+        $(function () {
+            $("footer").parent().hide();
+            //layout sayfasındaki footer elementini bul ve gizles
+            //parent <hr> nin kaybolması için
+
+
+        });
+    </script>*@
+@*BU KOD İLE GİZLEMEME GEREK KALMADI
+    @section footer{
+        @Html.Partial("_PartialFooter")
+    }
+    YAZMADIĞIM SÜRECE ZATEN FOOTER EKLENMEYECEK*@

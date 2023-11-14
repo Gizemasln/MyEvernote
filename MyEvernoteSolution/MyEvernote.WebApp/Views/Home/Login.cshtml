@@ -1,0 +1,61 @@
+﻿
+@using MyEvernote.Entities.ValueObjects
+@model LoginViewModel
+@{
+    ViewBag.Title = "Giriş Sayfası";
+}
+<link href="~/Content/login-register.css" rel="stylesheet" />
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+
+    <section class="login-info">
+        <div class="container">
+            <div class="row main">
+                <div class="form-header">
+                    <h1 class="text-center ">Giriş Formu </h1>
+                </div>
+                <div class="main-content">
+                    @Html.ValidationSummary(false)
+                    @*Tüm hata mesajlarını göstermesi için false olarak ayarlıyorum*@
+                    @if (ViewBag.SetLink != null)
+                    {
+                        <a href="@ViewBag.SetLink" class="btn btn-primary">Active</a>
+
+                    }
+
+                    <div class="input-group ">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Kullanıcı adınız" })
+
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Şifreniz", type = "password" })
+                    </div>
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-danger btn-lg btn-block login-button">Giriş</button>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+}
+@*<script>
+        $(function () {
+            $("footer").parent().hide();
+            //layout sayfasındaki footer elementini bul ve gizles
+            //parent <hr> nin kaybolması için
+
+
+        });
+    </script>*@
+@*BU KOD İLE GİZLEMEME GEREK KALMADI
+    @section footer{
+        @Html.Partial("_PartialFooter")
+    }
+    YAZMADIĞIM SÜRECE ZATEN FOOTER EKLENMEYECEK*@
