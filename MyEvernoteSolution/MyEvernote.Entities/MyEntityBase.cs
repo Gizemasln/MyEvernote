@@ -11,6 +11,8 @@ namespace MyEvernote.Entities
 {
     public class MyEntityBase
     {
+        //Bu classtaki tüm özellikleri referans ile diğer classlarda kullanabiliyoruz bu sayede 
+        //her defasında yazmamıza gerek kalmıyor
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [DisplayName("Oluşturma Tarihi"),ScaffoldColumn(false),Required]
