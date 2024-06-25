@@ -44,6 +44,7 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
         public int Insert(T obj)
         {
             //eklenecek olan verinin ne türde geleceğini bilmediğim için T obj şeklinde tanımladım
+            //Nesneyi alıp ilgili yere ekleyip ekledikten sonra en son save çağırıyor
           _objectSet.Add(obj);
             if(obj is MyEntityBase)
             {
