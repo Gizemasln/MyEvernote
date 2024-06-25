@@ -81,7 +81,8 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
             }
             //ekleyip kaydetmek için
             context.SaveChanges();
-            //User list for using
+            //Kullanılacak kullanıcı listesi
+
             List<EvernoteUsers> userlist = context.EvernoteUsers.ToList();
             //FAKE CATEGORİES eklemek için
             for (int i = 0; i < 10; i++)
@@ -131,7 +132,7 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
                         note.Comments.Add(comment);
                     }
                     //Adding Fake Likes
-                List<EvernoteUser> userlist = context.EvernoteUsers.ToList();
+             
                     for (int m = 0; m < note.LikeCount; m++)
                     // notun like sayısı (LikeCount) kadar dönmemeiz gerekiyor
                     {
