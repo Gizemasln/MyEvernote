@@ -16,6 +16,9 @@ namespace MyEvernote.Entities
         public string Title { get; set; }
         [DisplayName("Açıklama"), StringLength(150, ErrorMessage = "{0} Alanı  ma. {1} Karakterdir.")]
         public string Description { get; set; }
+
+        //Category ve note classını bağlantılıyorum ve list olarak tanımlıyorum
+        //Bir kategorinin birden fazla notu olabilir
         public virtual List<Note> Notes { get; set; }
 
         public Category() { 
