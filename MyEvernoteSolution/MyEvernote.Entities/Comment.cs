@@ -11,7 +11,7 @@ namespace MyEvernote.Entities
     [Table("Comments")]
     public class Comment : MyEntityBase
     {
-        
+        //nota Yapılan yorumlar
         [Required, StringLength(300)]
         public string Text { get; set; }
         public virtual Note Note { get; set; }
