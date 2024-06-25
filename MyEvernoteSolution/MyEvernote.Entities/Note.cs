@@ -37,7 +37,8 @@ namespace MyEvernote.Entities
         public virtual List<Liked> Likes { get; set; }
 
         public Note() { 
-        
+
+            //commennt ve likes listesinin otomatik oluşması için 
             Comments = new List<Comment>();
             Likes = new List<Liked>();
          }
