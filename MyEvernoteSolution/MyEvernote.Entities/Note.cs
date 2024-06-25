@@ -26,10 +26,13 @@ namespace MyEvernote.Entities
         [DisplayName("Kategori")]
         public int CategoryId { get; set; }//classın adını ve property nin adını yanyan ayazınca otomatik olarak algılıyor
 
-
+        //Bir notun bir tane sahibi oluşturan kişi var
         public virtual EvernoteUsers Owner { get; set; }
+         //Bir notun bir tane kategorisi var
         public virtual Category Category { get; set; }
+        //Bir notun birden fazla yorumu var (List)
         public virtual List<Comment> Comments { get; set; }
+        //Bir notun birden fazla like var (List)
         public virtual List<Liked> Likes { get; set; }
 
         public Note() { 
