@@ -12,19 +12,22 @@ using System.Threading.Tasks;
 
 namespace MyEvernote.DataAccessLayer.EntityFramework
 {
-    
+    /*kategori için ayrı not için ayrı List delete.. tanımlamamak için T ile generic genel tanımlıyorum
+    sorgu esnasında T için hangi ismi verirsem o tablo için işlem yapacak*/
     public class Repository<T> : RepositoryBase , IDataAccess<T> where T: class
+         //T nin sadece class olamsı gerektiğni bildirmek üçün where T: class ile kısıt koyduk
     {
   
-        private DbSet<T> _objectSet;
+        private DbSet<T> _objectSet; /* Her defasında dbset yazıp gerekli olan tüm verileri bulmak yerine
+        en başta bir kere değişkene set edip sürekli onu kullanırız*/
         public Repository()
         {
-         
+         //en başta bir kere set (atama) ediliyor
             _objectSet = context.Set<T>();
         }
         public List<T> List()
-        {
-            //T nin sadece class olamsı gerektiğni bildirmek üçün where T: class ile kısıt koyduk
+        { // gelen tip ne ise o tipin listini bul ve ona tolist uygula ve dönen listeyi geri döndür
+           
            return _objectSet.ToList();
         }
         public IQueryable<T> ListQueryable() 
