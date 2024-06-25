@@ -131,11 +131,13 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
                         note.Comments.Add(comment);
                     }
                     //Adding Fake Likes
-     
+                List<EvernoteUser> userlist = context.EvernoteUsers.ToList();
                     for (int m = 0; m < note.LikeCount; m++)
+                    // notun like sayısı (LikeCount) kadar dönmemeiz gerekiyor
                     {
                         Liked liked = new Liked()
                         {
+                            //Like eden kullanıcı bilgisi için
                             LikedUser = userlist[m],
                         };
 
@@ -143,7 +145,7 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
                     }
                 }
             }
-            context.SaveChanges();
+            context.SaveChanges(); //oluşan tüm data yığınının  kaydet
         }
 
     }
