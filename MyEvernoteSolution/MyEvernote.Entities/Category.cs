@@ -23,7 +23,7 @@ namespace MyEvernote.Entities
 
         public Category() { 
         
-        
+        //otomatik oalrak not listesini oluşturması için
             Notes = new List<Note>();
         }
     } 
