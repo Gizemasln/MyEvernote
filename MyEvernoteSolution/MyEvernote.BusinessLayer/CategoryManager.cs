@@ -12,7 +12,8 @@ namespace MyEvernote.BusinessLayer
     public class CategoryManager : ManagerBase<Category>
     {
         //2. yöntem kod yazmadan veritabanından çözmek:
-        //VERİTABANI DİAGRAMINDA TABLOLAR ARASINDAKİ INSERT AND UPDATE KURALINI CASCADE YAPMALISIN
+        /*VERİTABANI DİAGRAMINDA TABLOLAR ARASINDAKİ INSERT AND UPDATE KURALINI CASCADE(bağlantılı tabloda yapılan işlem 
+        her iki tabloda da yapılır) YAPMALISIN */
     //    public override int Delete(Category category)
     //    {
     //        //OVERRİDE ETMEK İSTEDİĞİN METOT VİRTAUL OLMASI GEREKİYOR
