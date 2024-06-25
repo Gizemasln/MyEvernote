@@ -10,7 +10,7 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
     public class RepositoryBase
     {
 
-        protected static DatabaseContext context;
+        protected static DatabaseContext context;//Miras ile gelebilmesi için protecdet tanımlıyorum
         private static object _lockSync=new object();
 
         protected RepositoryBase()
