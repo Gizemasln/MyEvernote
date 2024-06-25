@@ -20,7 +20,8 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
         public DbSet<Category> Categories { get; set; }
         public DbSet<Liked> Likes { get; set; }
         public DatabaseContext() { 
-        
+
+        //VEri tabanı başlatıcısı
         Database.SetInitializer(new MyInitializer());
         
         }
