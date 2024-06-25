@@ -12,12 +12,15 @@ namespace MyEvernote.Entities
     [Table("Notes")]
     public class Note : MyEntityBase
     {
+    //Id ve diğer özellijlerin gelmesi için Myentitybase den referans alıyor
         [DisplayName("Not Başlığı"),Required, StringLength(60)]
         public string Title { get; set; }
         [DisplayName("Not Metni"), Required, StringLength(2000)]
         public string Text { get; set; }
         [DisplayName("Taslak")]
+        //Taslak mı 
         public bool IsDraft { get; set; }
+        
         [DisplayName("Beğenilme")]
         public int LikeCount { get; set; }
         [DisplayName("Kategori")]
