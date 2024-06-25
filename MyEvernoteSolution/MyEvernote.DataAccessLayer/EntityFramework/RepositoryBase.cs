@@ -19,7 +19,7 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
         
 
         }
-        //Bİr nesne tanımlicam singleton oalrka herkes onu kullanacak yeni nesne tanımlamayacak demek için singleton kullanılır
+        //Bİr nesne tanımlicam singleton olarka herkes onu kullanacak yeni nesne tanımlamayacak demek için singleton kullanılır
         private static void CreateContext() // sttaic metotlar new lemeden çalışır
         {//Her defasında DatabaseContext i new lemesin bir defa new lesin ve onu kullansın null olmadığı durumlarda null sa newlesin
             if (context == null)
