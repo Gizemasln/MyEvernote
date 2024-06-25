@@ -13,8 +13,11 @@ namespace MyEvernote.Entities
     {
         //Bu classtaki tüm özellikleri referans ile diğer classlarda kullanabiliyoruz bu sayede 
         //her defasında yazmamıza gerek kalmıyor
+        //Primary key = Key ve otomatik artan olmas için
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+        //Required:zorunlu alan. 
+        //
         [DisplayName("Oluşturma Tarihi"),ScaffoldColumn(false),Required]
         public DateTime CreatedOn { get; set; }
         [DisplayName("Güncelleme Tarihi"), ScaffoldColumn(false), Required]
