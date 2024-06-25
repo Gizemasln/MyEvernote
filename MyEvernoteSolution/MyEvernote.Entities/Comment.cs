@@ -14,7 +14,9 @@ namespace MyEvernote.Entities
         //nota Yapılan yorumlar
         [Required, StringLength(300)]
         public string Text { get; set; }
+        //Hangi nota yorum olarak yapıldı bir tane yorum bir tane nota yapılır
         public virtual Note Note { get; set; }
+        //Yorumu yapan kişi bir yorumu bir kişi yapar
         public virtual EvernoteUsers Owner { get; set; }
     }
 }
