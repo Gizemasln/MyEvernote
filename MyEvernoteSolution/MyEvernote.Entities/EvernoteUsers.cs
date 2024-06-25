@@ -12,6 +12,8 @@ namespace MyEvernote.Entities
     [Table("EvernoteUsers")]
     public class EvernoteUsers : MyEntityBase
     {
+    //MyEntityBase sınıfından referans olındı 
+    //İd myentitybase den geldiği için bu classa yazmıyorum
        // public readonly object AktivateGuid;
 
         [DisplayName("İsim"),StringLength(25,ErrorMessage ="{0} alanı max. {1} karakter olmalıdır.")]
@@ -35,10 +37,11 @@ namespace MyEvernote.Entities
         [DisplayName("Aktif")]
         public bool IsActive { get; set; }
 
+        //Kullanıcının admin oluğ olmadığının kontrolü sağlanıyor
         [DisplayName("Yönetici")]
         public bool IsAdmin { get; set; }
 
-
+         //Activate id sinin daha zor bilinmesi için
         [Required, ScaffoldColumn(false)]
         public Guid ActivateGuid { get; set; }
 
