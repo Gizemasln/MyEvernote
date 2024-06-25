@@ -9,8 +9,11 @@ using System.Threading.Tasks;
 
 namespace MyEvernote.DataAccessLayer.EntityFramework
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : DbContext 
+    /*CodeFirst (kod ile veritabanı oluşturma)
+    için DbContext sınıfından türemesi gerekiyor paket ile dahil ediliyor*/
     {
+        //TABLOLARA KARŞILIK GELEN DB SETLER
         public DbSet<EvernoteUsers> EvernoteUsers { get; set; }
         public DbSet<Note> Notes { get; set; }
         public DbSet<Comment> Comments { get; set; }
