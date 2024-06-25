@@ -23,6 +23,7 @@ namespace MyEvernote.Entities
         
         [DisplayName("Beğenilme")]
         public int LikeCount { get; set; }
+        //Notun ilişkili olduğu kategorinin id sini tutmak için
         [DisplayName("Kategori")]
         public int CategoryId { get; set; }//classın adını ve property nin adını yanyan ayazınca otomatik olarak algılıyor
 
