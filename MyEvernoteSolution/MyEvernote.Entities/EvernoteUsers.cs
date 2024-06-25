@@ -45,9 +45,11 @@ namespace MyEvernote.Entities
         [Required, ScaffoldColumn(false)]
         public Guid ActivateGuid { get; set; }
 
-
+        //Bir kullanıcının birden çok kendi oluşturduğu notu var
         public virtual List<Note> Notes { get; set; }
+         //Bir kullanıcının birden çok kendi oluşturduğu yorumu var
         public virtual List<Comment> Comments { get; set; }
+          //Bir kullanıcının birden çok kendi like yaptığı not vardır
         public virtual List<Liked> Likes { get; set; }
     }
 }
