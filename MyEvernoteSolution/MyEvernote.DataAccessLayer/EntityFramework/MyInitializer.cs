@@ -13,11 +13,13 @@ using System.Threading.Tasks;
 
 namespace MyEvernote.DataAccessLayer.EntityFramework
 {
+//CreateDatabaseIfNotExists data base yok ise çalışsın
     public class MyInitializer : CreateDatabaseIfNotExists<DatabaseContext>
     {
+    //Seed database oluştuktan sonra örnek veri basarken kullanılan metod
         protected override void Seed(DatabaseContext context)
         {
-            //Adding admin user
+        //kullanıcı ekleme
             EvernoteUsers admin = new EvernoteUsers()
             {
               Name ="Gizem",
@@ -35,7 +37,7 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
 
             };
 
-            //Adding admin standar user
+            //admin  standart kullanıcı eklemesi için
             EvernoteUsers standartUser = new EvernoteUsers()
             {
                 Name = "Ayşe",
@@ -77,12 +79,13 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
                 context.EvernoteUsers.Add(user);
 
             }
+            //ekleyip kaydetmek için
             context.SaveChanges();
             //User list for using
             List<EvernoteUsers> userlist = context.EvernoteUsers.ToList();
-            //FAKE CATEGORİES
+            //FAKE CATEGORİES eklemek için
             for (int i = 0; i < 10; i++)
-            {
+            { 
                 Category cat = new Category()
                 {
                     Title = FakeData.PlaceData.GetStreetName(),
@@ -101,8 +104,8 @@ namespace MyEvernote.DataAccessLayer.EntityFramework
                     Note note = new Note()
                     {
 
-                        Title = FakeData.TextData.GetAlphabetical(FakeData.NumberData.GetNumber(5, 25)),
-                        Text = FakeData.TextData.GetSentences(FakeData.NumberData.GetNumber(1, 3)),
+                        Title = FakeData.TextData.GetAlphabetical(FakeData.NumberData.GetNumber(5, 25)),//Kelime
+                        Text = FakeData.TextData.GetSentences(FakeData.NumberData.GetNumber(1, 3)),//paragraf
                 
                         IsDraft = false,
                         LikeCount = FakeData.NumberData.GetNumber(1, 9),
